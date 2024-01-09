@@ -66,11 +66,12 @@ const printGoals = (...players) => {
         const playerScore = [...team.scored].filter(el => el === player);
         console.log(`${player} - ${playerScore.length}`);
     }
+    console.log(`Total goals scored ${players.length}`);
 };
 
 // Task 7
 team1 < team2 && console.log('Team 1 is more likely to win');
 
-// printGoals('Kimchi', 'Walker', 'Thiago', 'Apple');
+printGoals('Kimchi', 'Walker', 'Thiago', 'Apple');
 
 // console.log(team1, draw, team2);
