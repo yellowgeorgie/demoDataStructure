@@ -32,8 +32,8 @@ const team = {
             'Lagang',
         ],
     ],
-    score: '4:0',
-    scored: ['Walker', 'Peter', 'Jameson', 'Apple'],
+    score: '5:0',
+    scored: ['Walker', 'Peter', 'Jameson', 'Apple', 'Walker'],
     date: 'Nov 9th, 2050',
     odds: {
         team1: 1.33,
@@ -43,8 +43,7 @@ const team = {
 };
 
 // Task 1
-const players1 = team.players[0];
-const players2 = team.players[1];
+const [players1, players2] = team.players;
 
 // Task 2
 const [gk1, ...fieldPlayers1] = players1;
@@ -57,8 +56,21 @@ const allPlayers = [...players1, ...players2];
 const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 
 //Task 5
-const { team1, x: draw, team2 } = team.odds;
+const {
+    odds: { team1, x: draw, team2 },
+} = team;
 
 // Task 6
+const printGoals = (...players) => {
+    for (let player of players) {
+        const playerScore = [...team.scored].filter(el => el === player);
+        console.log(`${player} - ${playerScore.length}`);
+    }
+};
 
-console.log(team1, draw, team2);
+// Task 7
+team1 < team2 && console.log('Team 1 is more likely to win');
+
+// printGoals('Kimchi', 'Walker', 'Thiago', 'Apple');
+
+// console.log(team1, draw, team2);
