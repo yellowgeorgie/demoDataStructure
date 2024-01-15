@@ -75,3 +75,41 @@ team1 < team2 && console.log('Team 1 is more likely to win');
 printGoals('Kimchi', 'Walker', 'Thiago', 'Apple');
 
 // console.log(team1, draw, team2);
+
+// Coding challenge #2
+
+// Task 1
+// for (const [ind, player] of team.scored.entries()) {
+//     console.log(`Goal ${ind + 1} scored by ${player}`);
+// }
+
+// Task 2
+const oddVals = Object.values(team.odds);
+
+const oddCheck = () => {
+    let sum = 0;
+    for (const odd of oddVals) {
+        sum += odd;
+    }
+    console.log(sum / oddVals.length);
+};
+
+oddCheck();
+
+// Task 3
+
+for (const [who, odd] of Object.entries(team.odds)) {
+    console.log(
+        `Odd of ${who === 'x' ? 'draw' : 'victory ' + team[who]}: ${odd}`
+    );
+}
+
+// Bonus task
+
+const scorers = {};
+
+for (let player of team.scored) {
+    scorers[player] ? (scorers[player] += 1) : (scorers[player] = 1);
+}
+
+console.log(scorers);
