@@ -113,3 +113,42 @@ for (let player of team.scored) {
 }
 
 console.log(scorers);
+
+// Coding challenge #3
+
+const gameEvents = new Map([
+    [17, 'Goal'],
+    [36, 'Substitution'],
+    [47, 'Goal'],
+    [61, 'Substitution'],
+    [64, 'Yellow card'],
+    [69, 'Red card'],
+    [70, 'Substitution'],
+    [72, 'Substitution'],
+    [76, 'Goal'],
+    [80, 'Goal'],
+    [92, 'Yellow card'],
+]);
+
+// Task 1
+const events = [...new Set(gameEvents.values())];
+
+// Task 2
+gameEvents.delete(64);
+
+// Task 3
+const evtTimes = [...gameEvents.keys()];
+let add = 0;
+for (let i = 1; i < evtTimes.length; i++) {
+    add += evtTimes[i] - evtTimes[i - 1];
+}
+console.log(
+    `An event happened, on average, every ${add / gameEvents.size} minutes`
+);
+
+// Task 4
+for (const [time, event] of gameEvents.entries()) {
+    console.log(
+        `${time <= 45 ? '[FIRST HALF]' : '[SECOND HALF]'} ${time}: ${event}`
+    );
+}
